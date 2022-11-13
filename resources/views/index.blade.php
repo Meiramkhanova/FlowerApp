@@ -25,17 +25,30 @@
     <a href="#" class="logo">flower<span>.</span></a>
 
     <nav class="navbar">
-        <a href="#home">home</a>
-        <a href="#about">about</a>
-        <a href="#products">products</a>
-        <a href="#review">review</a>
-        <a href="#contact">contact</a>
+        <a href="/">home</a>
+        <a href="/about">about</a>
+        <a href="/products">products</a>
+        <a href="/review">review</a>
+        <a href="/contact">contact</a>
     </nav>
 
     <div class="icons">
         <a href="#" class="fas fa-heart"></a>
         <a href="#" class="fas fa-shopping-cart"></a>
         <a href="#" class="fas fa-user"></a>
+        @if (Route::has('login'))
+            <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                @auth
+                    <a href="{{ url('/contact') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
+                @else
+                    <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                    @endif
+                @endauth
+            </div>
+        @endif
     </div>
 
 </header>
@@ -59,7 +72,7 @@
 
 <!-- about section starts  -->
 
-<section class="about" id="about">
+<section class="/create" id="create">
 
     <h1 class="heading"> <span> about </span> us </h1>
 
